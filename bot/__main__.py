@@ -78,6 +78,9 @@ async def start(_, message):
         data['token'] = str(uuid4())
         data['time'] = time()
         user_data[userid].update(data)
+        if DATABASE_URL:           
+
+           await DbManger().update_user_data(userid)
         return await sendMessage(message, 'Token refreshed successfully!')
     elif config_dict['DM_MODE']:
         start_string = 'Bot Started.\n' \
