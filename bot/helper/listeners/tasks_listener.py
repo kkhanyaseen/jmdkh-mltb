@@ -382,10 +382,10 @@ class MirrorLeechListener:
                 await sendMessage(self.message, msg)
                 if self.logMessage:
                     await sendMessage(self.logMessage, msg)
-            elif self.dmMessage and not config_dict['DUMP_CHAT_ID']:
+            elif self.dmMessage and config_dict['DUMP_CHAT_ID']:
                 await sendMessage(self.dmMessage, msg)
-                msg += '<b>Files has been sent in your DM.</b>'
-                await sendMessage(self.message, msg)
+                msg1 = f'{self.tag}\n<b>Files has been sent in your DM.</b>'
+                await sendMessage(self.message, msg1)
                 if self.logMessage:
                     await sendMessage(self.logMessage, msg)
             else:
@@ -454,8 +454,8 @@ class MirrorLeechListener:
                                 buttons.ubutton("🌐 View Link", share_urls)
                 buttons = extra_btns(buttons)
                 if self.dmMessage:
-                    msg += '\n\n<b>Links has been sent in your DM.</b>'
-                    await sendMessage(self.message, msg)
+                    msg1 = f'{self.tag}\n<b>Links has been sent in your DM.</b>'
+                    await sendMessage(self.message, msg1)
                     await sendMessage(self.dmMessage, msg, buttons.build_menu(2))
                 else:
                     if self.isSuperGroup and not self.message.chat.has_protected_content:
