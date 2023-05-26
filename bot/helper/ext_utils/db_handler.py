@@ -123,10 +123,10 @@ class DbManger:
             del data['thumb']
         if data.get('rclone'):
             del data['rclone']
-        if data.get('token'):
-            del data['token']
-        if data.get('time'):
-            del data['time']
+        #if data.get('token'):
+           # del data['token']
+        #if data.get('time'):
+            #del data['time']
         await self.__db.users[bot_id].replace_one({'_id': user_id}, data, upsert=True)
         self.__conn.close
 
