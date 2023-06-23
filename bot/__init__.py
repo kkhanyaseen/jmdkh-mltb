@@ -528,7 +528,7 @@ if ospath.exists('categories.txt'):
 
 if BASE_URL:
     Popen(
-        f"gunicorn web.wserver:app --bind 0.0.0.0:{BASE_URL_PORT} --worker-class gevent", shell=True)
+        f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT} --worker-class gevent", shell=True)
 
 srun(["qolora", "-d", f"--profile={getcwd()}"])
 if not ospath.exists('.netrc'):
